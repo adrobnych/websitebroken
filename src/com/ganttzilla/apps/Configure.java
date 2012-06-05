@@ -1,5 +1,6 @@
 package com.ganttzilla.apps;
 
+
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -57,13 +58,20 @@ public class Configure extends Activity {
 				
 				
 				
-/*
+
 				Log.w(LOG, "configure method called1");
 				// Get all ids
 				ComponentName thisWidget = new ComponentName(context,
 						WebSitebrokenWidgetProvider.class);
 				int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+                 
+				// put widgetids to appscop
+				AppScope globals = (AppScope)context.getApplicationContext();   
+			    globals.setAllWidgetIds(allWidgetIds);
+			    
 
+				
+/*
 				// Build the intent to call the service
 				Intent intent = new Intent(context.getApplicationContext(),
 						UpdateWidgetService.class);

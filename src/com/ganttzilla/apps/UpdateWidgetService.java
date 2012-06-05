@@ -63,8 +63,11 @@ public class UpdateWidgetService extends Service {
 				AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
 						//.getApplicationContext());
 
-				int[] allWidgetIds = intent
-						.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
+				//int[] allWidgetIds = intent
+				//		.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
+				
+				AppScope globals = (AppScope)context.getApplicationContext();   
+				int[] allWidgetIds = globals.getAllWidgetIds();
 
 				ComponentName thisWidget = new ComponentName(getApplicationContext(),
 						WebSitebrokenWidgetProvider.class);
