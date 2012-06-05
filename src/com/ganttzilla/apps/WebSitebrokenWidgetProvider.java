@@ -1,0 +1,64 @@
+package com.ganttzilla.apps;
+
+import java.util.Random;
+
+import android.appwidget.AppWidgetManager;
+import android.appwidget.AppWidgetProvider;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
+import android.widget.RemoteViews;
+
+public class WebSitebrokenWidgetProvider extends AppWidgetProvider {
+	private static final String LOG = "de.vogella.android.widget.example";
+
+	@Override
+	public void onUpdate(Context context, AppWidgetManager appWidgetManager,
+			int[] appWidgetIds) {
+
+		Log.w(LOG, "onUpdate method called!!!!!!!");
+		
+		onUpdateHelper(context, appWidgetManager, appWidgetIds);
+		
+		// Get all ids
+		ComponentName thisWidget = new ComponentName(context,
+				WebSitebrokenWidgetProvider.class);
+		int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+
+		// Build the intent to call the service
+		Intent intent = new Intent(context.getApplicationContext(),
+				UpdateWidgetService.class);
+		intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
+
+		// Update the widgets via the service
+		context.startService(intent);
+		
+		
+		
+	}
+	
+	public void onUpdateHelper(Context context, AppWidgetManager appWidgetManager,
+			int[] appWidgetIds) {
+
+		// Get all ids
+		ComponentName thisWidget = new ComponentName(context,
+				WebSitebrokenWidgetProvider.class);
+		int[] allWidgetIds = appWidgetManager.getAppWidgetIds(thisWidget);
+		for (int widgetId : allWidgetIds) {
+			// Create some random data
+			int number = (new Random().nextInt(100));
+
+			RemoteViews remoteViews = new RemoteViews(context.getPackageName(),
+					R.layout.main);
+			Log.w("WidgetExample", String.valueOf(number));
+			// Set the text
+			remoteViews.setTextViewText(R.id.textView1, String.valueOf(number));
+
+			
+			appWidgetManager.updateAppWidget(widgetId, remoteViews);
+		}
+	}
+	
+	
+}
