@@ -1,10 +1,12 @@
 package com.ganttzilla.apps;
 
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +43,7 @@ public class Configure extends Activity {
 		}
 		
 		final AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-		RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.main);
+	    views = new RemoteViews(context.getPackageName(), R.layout.main);
 		
 		final EditText et = (EditText) findViewById(R.id.editText1);
 		Button b = (Button) findViewById(R.id.button1);
@@ -81,16 +83,16 @@ public class Configure extends Activity {
 				 SharedPreferences prefs = getSharedPreferences("WSBPREFS", 0);
 				 SharedPreferences.Editor editor = prefs.edit();
 				 editor.putString("widgetId" + widgetId , et.getText().toString());
-				 editor.commit();
+				 editor.commit();*/
 				 
 				
-				 //Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et.getText().toString()));
-				 //PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
-				 //views.setOnClickPendingIntent(R.id.imageButton1, pending);
+				 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et.getText().toString()));
+				 PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
+				 views.setOnClickPendingIntent(R.id.imageButton1, pending);
 				 views.setTextViewText(R.id.textView1, et.getText().toString());
 				 
 				
-				 appWidgetManager.updateAppWidget(widgetId, views);  */
+				 appWidgetManager.updateAppWidget(widgetId, views);  
 				 
 				 Intent resultIntent = new Intent();
 				 resultIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId); 
