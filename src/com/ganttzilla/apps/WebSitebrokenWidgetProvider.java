@@ -33,6 +33,10 @@ public class WebSitebrokenWidgetProvider extends AppWidgetProvider {
 			Intent intent = new Intent(context.getApplicationContext(),
 					UpdateWidgetService.class);
 			intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
+			
+			// put widgetids to appscop
+			AppScope globals = (AppScope)context.getApplicationContext();   
+		    globals.setAllWidgetIds(allWidgetIds);
 
 			// Update the widgets via the service
 			context.startService(intent);
