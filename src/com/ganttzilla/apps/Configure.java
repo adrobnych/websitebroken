@@ -47,6 +47,7 @@ public class Configure extends Activity {
 	    views = new RemoteViews(context.getPackageName(), R.layout.main);
 		
 		final EditText et = (EditText) findViewById(R.id.editText1);
+		final EditText et2 = (EditText) findViewById(R.id.editText2);
 		Button b = (Button) findViewById(R.id.button1);
 		
 
@@ -94,7 +95,7 @@ public class Configure extends Activity {
 				 editor.commit();*/
 				 
 				
-				 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et.getText().toString()));
+				 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et2.getText().toString()));
 				 PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
 				 views.setOnClickPendingIntent(R.id.imageButton1, pending);
 				 views.setTextViewText(R.id.textView1, et.getText().toString());
