@@ -30,8 +30,9 @@ public class UpdateWidgetService extends Service {
 
 	private static final String LOG = "com.ganttzilla.apps.websitebroken";
 	
-	Context context;
-	Intent intent;
+	private Context context;
+	private Intent intent;
+	private RemoteViews remoteViews;
 	
 	Timer timer	= new Timer();
 	MyTimerTask timerTask = new MyTimerTask();
@@ -45,6 +46,9 @@ public class UpdateWidgetService extends Service {
 	@Override
 	public void onStart(Intent _intent, int startId) {
 		intent = _intent;
+		remoteViews = new RemoteViews(context
+				.getApplicationContext().getPackageName(),
+				R.layout.main);
 		timer.schedule(timerTask, 1000, 2000);
 	}
 
@@ -75,22 +79,31 @@ public class UpdateWidgetService extends Service {
 						// Create some random data
 						int number = (new Random().nextInt(100));
 
-
-						RemoteViews remoteViews = new RemoteViews(context
-								.getApplicationContext().getPackageName(),
-								R.layout.main);
-
-
 						Log.w("WidgetExample number", (new Integer(number)).toString() );
 						// Set the text
 						remoteViews.setTextViewText(R.id.textView1,
 								"Random: " + (new Integer(number)).toString() );
+						
+						//testUpdateImageButton(number);
+						
 						appWidgetManager.updateAppWidget(widgetId, remoteViews);
 
 					}
 				}
 
-		  }
-
+	}
+	
+	private void testUpdateImageButton(int random_number){
+		switch(random_number%3){
+		case 0:
+			remoteViews.setImageViewResource(R.id.imageButton1, android.R.drawable.presence_away);
+			break;
+		case 1:
+			remoteViews.setImageViewResource(R.id.imageButton1, android.R.drawable.presence_busy);
+			break;
+		case 2:
+			remoteViews.setImageViewResource(R.id.imageButton1, android.R.drawable.presence_online);
+		}
+	}	
 
 }

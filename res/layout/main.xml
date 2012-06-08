@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
+    android:layout_width="match_parent"
     android:layout_height="fill_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/myshape"
     android:orientation="vertical" >
 
     <ImageButton
         android:id="@+id/imageButton1"
-        android:layout_width="72dp"
-        android:layout_height="36dp"
-        android:src="@android:drawable/presence_online" />
+        android:layout_width="86dp"
+        android:layout_height="46dp"
+        android:src="@android:drawable/presence_online" android:layout_marginTop="8dp" android:layout_gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Static Text" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="abcdefghiklm" android:layout_gravity="center_horizontal" android:textColor="#ffffffff">
     </TextView>
 
 </LinearLayout>
