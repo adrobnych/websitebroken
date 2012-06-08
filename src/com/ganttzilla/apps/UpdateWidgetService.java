@@ -28,7 +28,7 @@ import android.widget.RemoteViews;
 
 public class UpdateWidgetService extends Service {
 
-	private static final String LOG = "de.vogella.android.widget.example";
+	private static final String LOG = "com.ganttzilla.apps.websitebroken";
 	
 	Context context;
 	Intent intent;

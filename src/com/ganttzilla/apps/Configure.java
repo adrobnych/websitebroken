@@ -22,7 +22,7 @@ public class Configure extends Activity {
 	private int widgetId;
 	private RemoteViews views;
 
-	private static final String LOG = "de.vogella.android.widget.example";
+	private static final String LOG = "com.ganttzilla.apps.websitebroken";
 	
 	
 	@Override
