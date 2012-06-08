@@ -61,11 +61,7 @@ public class UpdateWidgetService extends Service {
 				// Create some random data
 
 				AppWidgetManager appWidgetManager = AppWidgetManager.getInstance(context);
-						//.getApplicationContext());
-
-				//int[] allWidgetIds = intent
-				//		.getIntArrayExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS);
-				
+			
 				AppScope globals = (AppScope)context.getApplicationContext();   
 				int[] allWidgetIds = globals.getAllWidgetIds();
 
@@ -91,25 +87,8 @@ public class UpdateWidgetService extends Service {
 								"Random: " + (new Integer(number)).toString() );
 						appWidgetManager.updateAppWidget(widgetId, remoteViews);
 
-						// Register an onClickListener
-//						Intent clickIntent = new Intent(context.getApplicationContext(),
-//								WebSitebrokenWidgetProvider.class);
-//
-//						clickIntent.setAction(AppWidgetManager.ACTION_APPWIDGET_UPDATE);
-//						clickIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS,
-//								allWidgetIds);
-//
-//						PendingIntent pendingIntent = PendingIntent.getBroadcast(
-//								getApplicationContext(), 0, clickIntent, 
-//								PendingIntent.FLAG_UPDATE_CURRENT);
-//						remoteViews.setOnClickPendingIntent(R.id.imageButton1, pendingIntent);
-//
-//						appWidgetManager.updateAppWidget(widgetId, remoteViews);
 					}
 				}
-				//stopSelf();
-
-				//super.onStart(intent, startId);
 
 		  }
 

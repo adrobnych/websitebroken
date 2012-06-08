@@ -1,6 +1,5 @@
 package com.ganttzilla.apps;
 
-
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.appwidget.AppWidgetManager;
@@ -24,10 +23,9 @@ public class Configure extends Activity {
 
 	private static final String LOG = "com.ganttzilla.apps.websitebroken";
 	
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
+	
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.configure);
 		
@@ -56,10 +54,6 @@ public class Configure extends Activity {
 			@Override
 			public void onClick(View arg0) {
 				 
-				
-				
-				
-
 				Log.w(LOG, "configure method called1");
 				// Get all ids
 				ComponentName thisWidget = new ComponentName(context,
@@ -69,52 +63,21 @@ public class Configure extends Activity {
 				// put widgetids to appscop
 				AppScope globals = (AppScope)context.getApplicationContext();   
 			    globals.setAllWidgetIds(allWidgetIds);
-			    
+		
+			    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et2.getText().toString()));
+			    PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
+			    views.setOnClickPendingIntent(R.id.imageButton1, pending);
+			    views.setTextViewText(R.id.textView1, et.getText().toString());
 
-				
-/*
-				// Build the intent to call the service
-				Intent intent = new Intent(context.getApplicationContext(),
-						UpdateWidgetService.class);
-				intent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_IDS, allWidgetIds);
 
-				// Update the widgets via the service
-				context.startService(intent);*/
-				
-				
-				
-				
-				
-				
-				
-				/*
-				//store data to sharedprefs
-				 SharedPreferences prefs = getSharedPreferences("WSBPREFS", 0);
-				 SharedPreferences.Editor editor = prefs.edit();
-				 editor.putString("widgetId" + widgetId , et.getText().toString());
-				 editor.commit();*/
-				 
-				
-				 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et2.getText().toString()));
-				 PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
-				 views.setOnClickPendingIntent(R.id.imageButton1, pending);
-				 views.setTextViewText(R.id.textView1, et.getText().toString());
-				 
-				
-				 appWidgetManager.updateAppWidget(widgetId, views);  
-				 
-				 Intent resultIntent = new Intent();
-				 resultIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId); 
-				 setResult(RESULT_OK, resultIntent); 
-				 
-				
-				 
-				 
-				 finish();
+			    appWidgetManager.updateAppWidget(widgetId, views);  
+
+			    Intent resultIntent = new Intent();
+			    resultIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, widgetId); 
+			    setResult(RESULT_OK, resultIntent); 
+
+				finish();
 			}
 		});
-		
-		
 	}
-
 }
