@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText2"
-        android:text="Refresh period (minutes)"
+        android:text="Refresh period (minutes, &gt;= 5)"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
