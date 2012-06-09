@@ -58,7 +58,7 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/editText2"
         android:text="Refresh period (minutes, &gt;= 5)"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" android:visibility="invisible"/>
 
     <EditText
         android:id="@+id/editText3"
@@ -67,6 +67,6 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView3"
         android:ems="10"
-        android:inputType="number" android:text="5"/>
+        android:inputType="number" android:text="5" android:visibility="invisible"/>
 
 </RelativeLayout>
