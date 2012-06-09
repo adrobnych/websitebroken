@@ -46,6 +46,7 @@ public class Configure extends Activity {
 		
 		final EditText et = (EditText) findViewById(R.id.editText1);
 		final EditText et2 = (EditText) findViewById(R.id.editText2);
+		final EditText refresh_time_et = (EditText) findViewById(R.id.editText3);
 		Button b = (Button) findViewById(R.id.button1);
 		
 
@@ -63,6 +64,7 @@ public class Configure extends Activity {
 				// put widgetids to appscop
 				AppScope globals = (AppScope)context.getApplicationContext();   
 			    globals.setAllWidgetIds(allWidgetIds);
+			    globals.setRefresh_period((new Integer(refresh_time_et.getText().toString())).intValue());
 		
 			    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et2.getText().toString()));
 			    PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);

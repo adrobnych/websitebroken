@@ -49,7 +49,9 @@ public class UpdateWidgetService extends Service {
 		remoteViews = new RemoteViews(context
 				.getApplicationContext().getPackageName(),
 				R.layout.main);
-		timer.schedule(timerTask, 1000, 2000);
+		AppScope globals = (AppScope)context.getApplicationContext();   
+		int refresh_period = globals.getRefresh_period();
+		timer.schedule(timerTask, 60*1000, refresh_period*60*1000);
 	}
 
 	@Override

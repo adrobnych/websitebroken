@@ -19,7 +19,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:text="Display name"
+        android:text="Display name (12 symbols max)"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <EditText
@@ -50,5 +50,23 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView2"
         android:ems="10" android:text="http://www.ganttzilla.com"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/editText2"
+        android:text="Refresh period (minutes)"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView3"
+        android:ems="10"
+        android:inputType="number" android:text="5"/>
 
 </RelativeLayout>
