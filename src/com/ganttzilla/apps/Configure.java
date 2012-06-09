@@ -73,7 +73,8 @@ public class Configure extends Activity implements TextWatcher {
 				AppScope globals = (AppScope)context.getApplicationContext();   
 			    globals.setAllWidgetIds(allWidgetIds);
 			    globals.setRefresh_period((new Integer(refresh_time_et.getText().toString())).intValue());
-		
+			    globals.getWidgetUrls().put(widgetId, et2.getText().toString());
+			    
 			    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(et2.getText().toString()));
 			    PendingIntent pending = PendingIntent.getActivity(context, 0, intent, 0);
 			    views.setOnClickPendingIntent(R.id.imageButton1, pending);
